@@ -146,6 +146,7 @@ LANGUAGES = [
     ("tr", gettext_noop("Turkish")),
     ("tt", gettext_noop("Tatar")),
     ("udm", gettext_noop("Udmurt")),
+    ("ug", gettext_noop("Uyghur")),
     ("uk", gettext_noop("Ukrainian")),
     ("ur", gettext_noop("Urdu")),
     ("uz", gettext_noop("Uzbek")),
@@ -155,7 +156,7 @@ LANGUAGES = [
 ]
 
 # Languages using BiDi (right-to-left) layout
-LANGUAGES_BIDI = ["he", "ar", "ar-dz", "ckb", "fa", "ur"]
+LANGUAGES_BIDI = ["he", "ar", "ar-dz", "ckb", "fa", "ug", "ur"]
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -170,7 +171,6 @@ LANGUAGE_COOKIE_PATH = "/"
 LANGUAGE_COOKIE_SECURE = False
 LANGUAGE_COOKIE_HTTPONLY = False
 LANGUAGE_COOKIE_SAMESITE = None
-
 
 # If you set this to True, Django will format dates, numbers and calendars
 # according to user current locale.
