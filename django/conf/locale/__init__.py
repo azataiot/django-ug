@@ -566,6 +566,24 @@ LANG_INFO = {
         "name": "Udmurt",
         "name_local": "Удмурт",
     },
+    "ug": {
+        "bidi": True,
+        "code": "ug",
+        "name": "Uyghur",
+        "name_local": "ئۇيغۇرچە",
+    },
+    "ug-latin": {
+        "bidi": False,
+        "code": "ug-latin",
+        "name": "Uyghur Latin",
+        "name_local": "Uyghurche",
+    },
+    "ug-cyrillic": {
+        "bidi": False,
+        "code": "ug-cyrillic",
+        "name": "Uyghur Cyrillic",
+        "name_local": "Уйғурчә",
+    },
     "uk": {
         "bidi": False,
         "code": "uk",
