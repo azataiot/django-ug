@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
-Name: Django
+Name: django-ug
 Version: 4.2.4
 Summary: A high-level Python web framework that encourages rapid development and clean, pragmatic design.
-Home-page: https://www.djangoproject.com/
+Home-page: https://github.com/azataiot/django-ug
 Author: Django Software Foundation
 Author-email: foundation@djangoproject.com
 License: BSD-3-Clause
