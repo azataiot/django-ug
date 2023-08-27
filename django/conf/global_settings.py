@@ -147,6 +147,8 @@ LANGUAGES = [
     ("tt", gettext_noop("Tatar")),
     ("udm", gettext_noop("Udmurt")),
     ("ug", gettext_noop("Uyghur")),
+    ("ug-latin", gettext_noop("Uyghur Latin")),
+    ("ug-cyrillic", gettext_noop("Uyghur Cyrillic")),
     ("uk", gettext_noop("Ukrainian")),
     ("ur", gettext_noop("Urdu")),
     ("uz", gettext_noop("Uzbek")),
