@@ -14,7 +14,7 @@ Compatible with Django 4.x versions.
 Usage
 ====================================
 
-To use the Uyghur language support in your Django project, update the LANGUAGE_CODE setting in your settings.py file to 'ug' for Uyghur in Arabic script, 'ug@latin' for Uyghur in Latin script, or 'ug@cyrillic' for Uyghur in Cyrillic script.
+To use the Uyghur language support in your Django project, update the LANGUAGE_CODE setting in your settings.py file to 'ug' for Uyghur in Arabic script, 'ug-latin' for Uyghur in Latin script, or 'ug-cyrillic' for Uyghur in Cyrillic script.
 
 For example, to use Uyghur in Arabic script, add the following line to your settings.py file:
 
