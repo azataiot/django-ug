@@ -382,6 +382,15 @@ msgstr ""
 msgid "Udmurt"
 msgstr ""
 
+msgid "Uyghur"
+msgstr ""
+
+msgid "Uyghur Latin"
+msgstr ""
+
+msgid "Uyghur Cyrillic"
+msgstr ""
+
 #: conf/global_settings.py:149
 msgid "Ukrainian"
 msgstr ""
