@@ -39,36 +39,8 @@ class StaticfilesStorageDeprecationTests(TestCase):
         )
         sys.modules["fake_settings_module"] = settings_module
         try:
-            with self.assertWarnsMessage(RemovedInDjango51Warning, self.msg):
-                fake_settings = Settings("fake_settings_module")
-            self.assertEqual(
-                fake_settings.STORAGES[STATICFILES_STORAGE_ALIAS],
-                {
-                    "BACKEND": (
-                        "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
-                    ),
-                },
-            )
-        finally:
-            del sys.modules["fake_settings_module"]
-
-    def test_settings_storages_init(self):
-        settings_module = ModuleType("fake_settings_module")
-        settings_module.USE_TZ = True
-        settings_module.STORAGES = {
-            STATICFILES_STORAGE_ALIAS: {
-                "BACKEND": (
-                    "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
-                )
-            }
-        }
-        sys.modules["fake_settings_module"] = settings_module
-        try:
-            fake_settings = Settings("fake_settings_module")
-            self.assertEqual(
-                fake_settings.STATICFILES_STORAGE,
-                "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
-            )
+            with self.assertRaisesMessage(RemovedInDjango51Warning, self.msg):
+                Settings("fake_settings_module")
         finally:
             del sys.modules["fake_settings_module"]
 
@@ -129,26 +101,6 @@ class StaticfilesStorageDeprecationTests(TestCase):
             )
             self.assertIsInstance(staticfiles_storage, ManifestStaticFilesStorage)
 
-    @ignore_warnings(category=RemovedInDjango51Warning)
-    def test_staticfiles_storage(self):
-        with self.settings(
-            STORAGES={
-                STATICFILES_STORAGE_ALIAS: {
-                    "BACKEND": (
-                        "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
-                    )
-                }
-            }
-        ):
-            self.assertEqual(
-                settings.STATICFILES_STORAGE,
-                "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
-            )
-            self.assertIsInstance(
-                storages[STATICFILES_STORAGE_ALIAS],
-                ManifestStaticFilesStorage,
-            )
-
 
 class DefaultStorageDeprecationTests(TestCase):
     msg = DEFAULT_FILE_STORAGE_DEPRECATED_MSG
@@ -166,30 +118,8 @@ class DefaultStorageDeprecationTests(TestCase):
         settings_module.DEFAULT_FILE_STORAGE = "django.core.files.storage.Storage"
         sys.modules["fake_settings_module"] = settings_module
         try:
-            with self.assertWarnsMessage(RemovedInDjango51Warning, self.msg):
-                fake_settings = Settings("fake_settings_module")
-            self.assertEqual(
-                fake_settings.STORAGES[DEFAULT_STORAGE_ALIAS],
-                {"BACKEND": "django.core.files.storage.Storage"},
-            )
-        finally:
-            del sys.modules["fake_settings_module"]
-
-    def test_settings_storages_init(self):
-        settings_module = ModuleType("fake_settings_module")
-        settings_module.USE_TZ = True
-        settings_module.STORAGES = {
-            DEFAULT_STORAGE_ALIAS: {
-                "BACKEND": "django.core.files.storage.Storage",
-            }
-        }
-        sys.modules["fake_settings_module"] = settings_module
-        try:
-            fake_settings = Settings("fake_settings_module")
-            self.assertEqual(
-                fake_settings.DEFAULT_FILE_STORAGE,
-                "django.core.files.storage.Storage",
-            )
+            with self.assertRaisesMessage(RemovedInDjango51Warning, self.msg):
+                Settings("fake_settings_module")
         finally:
             del sys.modules["fake_settings_module"]
 
@@ -233,18 +163,3 @@ class DefaultStorageDeprecationTests(TestCase):
             self.assertIsInstance(storages[DEFAULT_STORAGE_ALIAS], Storage)
             self.assertIsInstance(empty_storages[DEFAULT_STORAGE_ALIAS], Storage)
             self.assertIsInstance(default_storage, Storage)
-
-    @ignore_warnings(category=RemovedInDjango51Warning)
-    def test_default_file_storage(self):
-        with self.settings(
-            STORAGES={
-                DEFAULT_STORAGE_ALIAS: {
-                    "BACKEND": "django.core.files.storage.Storage",
-                }
-            }
-        ):
-            self.assertEqual(
-                settings.DEFAULT_FILE_STORAGE,
-                "django.core.files.storage.Storage",
-            )
-            self.assertIsInstance(storages[DEFAULT_STORAGE_ALIAS], Storage)
